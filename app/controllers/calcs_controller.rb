@@ -10,13 +10,18 @@ class CalcsController < ApplicationController
 
   def create
    @calc = Calc.new(calc_params)
-   if @calc.save
-    redirect_to root_path
-   else
+   unless @calc.save
     render :new
    end
-   
+
   end
+
+  def destroy
+    calc = Calc.find(params[:id])
+    calc.destroy
+    redirect_to root_path
+  end
+
   
   private
    def calc_params
