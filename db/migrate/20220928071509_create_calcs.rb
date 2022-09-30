@@ -4,6 +4,7 @@ class CreateCalcs < ActiveRecord::Migration[6.0]
 
       t.timestamps
       t.integer :input , null: false
+      t.integer :inputplus
     end
   end
 end
